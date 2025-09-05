@@ -1,3 +1,9 @@
+// This section is for FAQs (Frequently Asked Questions).
+// To add or change a question, edit the 'faqs' array below.
+// FAQ COMPONENT
+// Section for displaying frequently asked questions
+// To add/edit FAQs, update the 'faqs' array below
+
 'use client';
 
 import { useState } from 'react';
@@ -40,10 +46,12 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-20 bg-gray-900">
       <div className="max-w-4xl mx-auto px-4">
+        {/* Section title and intro */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Frequently Asked Questions</h2>
         </div>
         
+        {/* FAQ grid: each card shows question and answer, toggleable */}
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div
@@ -80,3 +88,4 @@ const FAQ = () => {
 };
 
 export default FAQ;
+// End FAQ COMPONENT

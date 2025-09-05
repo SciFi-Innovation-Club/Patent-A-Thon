@@ -1,3 +1,8 @@
+// EVENT TIMELINE COMPONENT
+// This section shows the event timeline.
+// To add or change a timeline event, edit the 'timeline' array below.
+// You can change the date, title, icon, or color for each event.
+
 'use client';
 import { Calendar, FileText, Upload, Award, Trophy, Flag } from 'lucide-react';
 import { useEffect } from 'react';
@@ -61,6 +66,7 @@ const EventTimeline = () => {
   return (
     <section id="timeline" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Section title and intro */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Event Timeline</h2>
           <p className="text-lg text-green-400 font-semibold animate-pulse">Follow the journey, step by step!</p>
@@ -69,6 +75,7 @@ const EventTimeline = () => {
           {/* Timeline line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-green-400 via-blue-500 to-purple-600 h-full shadow-lg"></div>
           <div className="space-y-12">
+            {/* Timeline grid: each card shows icon, date, title, and animation */}
             {timeline.map((item, index) => {
               const IconComponent = item.icon;
               const isEven = index % 2 === 0;
@@ -100,3 +107,4 @@ const EventTimeline = () => {
 };
 
 export default EventTimeline;
+// End EVENT TIMELINE COMPONENT
