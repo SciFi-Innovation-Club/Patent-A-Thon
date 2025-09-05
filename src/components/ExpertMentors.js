@@ -52,7 +52,7 @@ const ExpertMentors = () => {
           {mentors.map((mentor, index) => (
             <div
               key={index}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-gray-600 hover:bg-gray-800/70 transition-all duration-300 text-center group"
+              className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-green-400 hover:bg-gray-800/90 transition-all duration-300 text-center group"
             >
               <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-green-400 transition-colors duration-300">
                 <Image
@@ -68,7 +68,7 @@ const ExpertMentors = () => {
               <p className="text-green-400 font-medium mb-2">
                 {mentor.position}
               </p>
-              <p className="text-gray-400 text-sm mb-2">
+              <p className="text-gray-300 text-sm mb-2">
                 {mentor.organization}
               </p>
               <a

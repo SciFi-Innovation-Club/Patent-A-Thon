@@ -71,7 +71,6 @@ const InnovationTracks = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tracks.map((track, index) => {
             const IconComponent = track.icon;
-            // Add fun taglines
             const taglines = [
               "Save lives with tech!",
               "Go green, go future!",
@@ -83,13 +82,9 @@ const InnovationTracks = () => {
               "Automate the future!",
               "Break all boundaries!"
             ];
-            // Hot badge for select tracks
             const hotTracks = [0, 2, 8];
             return (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 rounded-xl p-8 border-2 border-transparent hover:border-green-400 shadow-lg hover:shadow-green-500/30 transition-all duration-300 group relative"
-              >
+              <div key={index} className="bg-gray-800/80 rounded-xl p-8 border-2 border-gray-700 hover:border-green-400 shadow-lg hover:shadow-green-500/30 transition-all duration-300 group relative">
                 {hotTracks.includes(index) && (
                   <span className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow animate-bounce">Hot!</span>
                 )}
@@ -100,7 +95,7 @@ const InnovationTracks = () => {
                   {track.title}
                 </h3>
                 <p className="text-green-400 text-sm mb-2 italic">{taglines[index]}</p>
-                <p className="text-gray-400 leading-relaxed mb-4">
+                <p className="text-gray-300 leading-relaxed mb-4">
                   {track.description}
                 </p>
                 <button className="mt-2 px-4 py-2 bg-green-600 text-white rounded-full font-semibold shadow hover:bg-green-700 transition-all">Explore</button>

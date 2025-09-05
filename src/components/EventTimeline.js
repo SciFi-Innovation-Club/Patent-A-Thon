@@ -59,7 +59,7 @@ const EventTimeline = () => {
   }, []);
 
   return (
-    <section id="timeline" className="py-20 bg-black">
+    <section id="timeline" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Event Timeline</h2>
@@ -73,10 +73,7 @@ const EventTimeline = () => {
               const IconComponent = item.icon;
               const isEven = index % 2 === 0;
               return (
-                <div
-                  key={index}
-                  className={`flex items-center ${isEven ? 'justify-start' : 'justify-end'}`}
-                >
+                <div key={index} className={`flex items-center ${isEven ? 'justify-start' : 'justify-end'}`}>
                   <div className={`relative ${isEven ? 'pr-8' : 'pl-8'} ${isEven ? 'text-right' : 'text-left'} w-full md:w-1/2`}>
                     <div className="timeline-fade opacity-0 translate-y-8 transition-all duration-700 bg-gray-800/80 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-gray-700 hover:border-green-400 shadow-lg group">
                       <div className={`flex items-center gap-4 ${isEven ? 'justify-end' : 'justify-start'}`}>
