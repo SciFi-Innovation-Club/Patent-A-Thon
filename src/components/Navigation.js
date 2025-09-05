@@ -15,11 +15,10 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-col sm:flex-row">
             <h1 className="text-xl font-bold text-white">Patent-A-Thon 1.0</h1>
-            <span className="ml-3 text-sm text-gray-400 hidden sm:block">
-              Ideate • Innovate • Patent
-            </span>
+            <span className="ml-3 text-sm text-gray-400 hidden sm:block">Ideate • Innovate • Patent</span>
+            <span className="block sm:hidden text-sm text-gray-400 mt-1 mr-4">Ideate • Innovate • Patent</span>
           </div>
 
           {/* Desktop Navigation */}

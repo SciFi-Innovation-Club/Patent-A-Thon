@@ -2,16 +2,18 @@ import { Instagram, Linkedin, MessageCircle, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-20 border-t border-gray-800">
+    <footer className="bg-gray-900 text-white py-20 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Innovate?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Ready to Innovate?
+          </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Join Patent-a-thon 1.0 at Chandigarh University and turn your innovative ideas
-            into protected intellectual property. Register now and be part of this
-            groundbreaking innovation event!
+            Join Patent-a-thon 1.0 at Chandigarh University and turn your
+            innovative ideas into protected intellectual property. Register now
+            and be part of this groundbreaking innovation event!
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <a
               href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
@@ -34,7 +36,9 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-green-400">Contact Information</h3>
+            <h3 className="text-2xl font-bold mb-6 text-green-400">
+              Contact Information
+            </h3>
             <div className="space-y-4">
               <a
                 href="mailto:scifiinnovationclub@gmail.com"
@@ -88,9 +92,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-green-400">Patent-A-Thon 1.0</h2>
-          <p className="text-gray-400">Built with innovation in mind.</p>
+        <div className="border-t border-gray-800 pt-10 text-center ">
+          <h2 className="text-3xl md:text-4xl font-bold mb-1 text-green-500">
+            Patent-A-Thon 1.0
+          </h2>
+          <p className="text-gray-400">Built with innovation in mind | Sci-Fi Innovation Club</p>
         </div>
       </div>
     </footer>
