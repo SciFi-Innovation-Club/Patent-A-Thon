@@ -1,10 +1,51 @@
 'use client';
 
 import { Calendar, Clock, MapPin } from 'lucide-react';
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  // Animated counter hook
+
+  function useCountUp(to, duration = 2000) {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+      let start = 0;
+      const end = parseInt(to, 10);
+      if (start === end) return;
+      let incrementTime = Math.floor(duration / end);
+      const timer = setInterval(() => {
+        start += 1;
+        setCount(start);
+        if (start === end) clearInterval(timer);
+      }, incrementTime);
+      return () => clearInterval(timer);
+    }, [to, duration]);
+    return count;
+  }
+
+  // Only start counting when header is visible
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.getElementById('main-header');
+      if (header) {
+        const rect = header.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setStartCount(true);
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    // Check on mount in case already visible
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const participants = useCountUp(startCount ? 500 : 0, 10000);
+
   return (
-    <header className="min-h-screen bg-black text-white relative overflow-hidden">
+    <header id="main-header" className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]"></div>
@@ -83,7 +124,7 @@ const Header = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
-              <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">500+</div>
+              <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{participants}+</div>
               <div className="text-gray-400 text-sm lg:text-base">Participants</div>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
