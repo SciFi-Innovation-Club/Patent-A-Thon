@@ -1,9 +1,18 @@
+// This is the footer at the bottom of the site.
+// To change contact info or social links, edit the lines below.
+// To update the call-to-action or branding, look for the text and links at the end.
+
+// FOOTER COMPONENT
+// Section for site footer, contact info, social links, and call-to-action
+// To change contact info or social links, edit lines below
+
 import { Instagram, Linkedin, MessageCircle, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-20 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Section title and intro */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Ready to Innovate?
@@ -34,6 +43,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Contact info and social links grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           <div>
             <h3 className="text-2xl font-bold mb-6 text-green-400">
@@ -92,6 +102,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Footer branding and copyright */}
         <div className="border-t border-gray-800 pt-10 text-center ">
           <h2 className="text-3xl md:text-4xl font-bold mb-1 text-green-500">
             Patent-A-Thon 1.0
@@ -104,3 +115,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// End FOOTER COMPONENT

@@ -1,3 +1,7 @@
+// This component shows all the innovation tracks for the event.
+// To add a new track, just add an object to the 'tracks' array below.
+// You can change the title, description, icon, and color for each track.
+
 import { Heart, Leaf, Brain, Wifi, DollarSign, GraduationCap, Tractor, Factory, Lightbulb } from 'lucide-react';
 
 const InnovationTracks = () => {
@@ -61,6 +65,7 @@ const InnovationTracks = () => {
   return (
     <section id="tracks" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Section title and intro */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Innovation Tracks</h2>
           <p className="text-xl text-green-400 font-semibold mb-2 animate-pulse">Unleash your creativity. Pick a track. Patent your idea!</p>
@@ -68,6 +73,7 @@ const InnovationTracks = () => {
             Choose your domain and build groundbreaking solutions that can be patented
           </p>
         </div>
+        {/* Tracks grid: each card shows icon, title, tagline, description, and Explore button */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tracks.map((track, index) => {
             const IconComponent = track.icon;
@@ -109,3 +115,4 @@ const InnovationTracks = () => {
 };
 
 export default InnovationTracks;
+// End INNOVATION TRACKS COMPONENT

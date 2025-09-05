@@ -1,3 +1,12 @@
+// This is the navigation bar at the top.
+// To change the logo text or tagline, edit the lines near the top.
+// To add or remove navigation links, look for the links section.
+// To update the buttons (Register, WhatsApp), find the button code below.
+
+// NAVIGATION COMPONENT
+// Top navigation bar with logo, tagline, and links
+// To change logo text or navigation links, edit lines below
+
 'use client';
 
 import { useState } from 'react';
@@ -14,14 +23,14 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo and tagline */}
           <div className="flex items-center flex-col sm:flex-row">
             <h1 className="text-xl font-bold text-white">Patent-A-Thon 1.0</h1>
             <span className="ml-3 text-sm text-gray-400 hidden sm:block">Ideate • Innovate • Patent</span>
             <span className="block sm:hidden text-sm text-gray-400 mt-1 mr-4">Ideate • Innovate • Patent</span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop navigation links */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#tracks" className="text-gray-300 hover:text-white transition-colors">
               Tracks
@@ -37,7 +46,7 @@ const Navigation = () => {
             </a>
           </div>
 
-          {/* Desktop CTA Buttons */}
+          {/* Desktop CTA buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
@@ -57,7 +66,7 @@ const Navigation = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile menu button and mobile menu */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -127,3 +136,5 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+// End NAVIGATION COMPONENT

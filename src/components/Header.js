@@ -1,3 +1,9 @@
+// HEADER COMPONENT
+// Main landing section with event title, tagline, date, venue, and registration buttons
+// To change event name, tagline, or date, edit lines below
+// To change the registration button, look for the 'Register Now' link.
+// To update the stats (participants, ideas, tracks, innovation), edit the grid at the bottom.
+
 'use client';
 
 import { Calendar, Clock, MapPin } from 'lucide-react';
@@ -56,6 +62,7 @@ const Header = () => {
       <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl"></div>
       <div className="relative max-w-7xl mx-auto px-4 pt-20 pb-16 min-h-screen flex flex-col justify-center">
         <div className="text-center">
+          {/* Main event title and tagline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 mt-10">
             Patent-A-Thon 1.0
           </h1>
@@ -68,6 +75,7 @@ const Header = () => {
           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Join Chandigarh University&apos;s premier patent-focused innovation event where groundbreaking ideas transform into protected intellectual property.
           </p>
+          {/* Event details (date, time, venue) */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-8 mb-12">
             <div className="flex items-center gap-3 text-base lg:text-lg">
               <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
@@ -88,11 +96,13 @@ const Header = () => {
               <a href="https://maps.app.goo.gl/gN7rDhjEsALJ4TAz8" className="font-semibold hover:text-green-400 transition-colors" target="_blank" rel="noopener noreferrer">Chandigarh University</a>
             </div>
           </div>
+          {/* Registration and WhatsApp buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <a href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit" target="_blank" rel="noopener noreferrer" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25">Register Now</a>
             <a href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c" target="_blank" rel="noopener noreferrer" className="border-2 border-gray-600 hover:border-green-500 text-gray-300 hover:text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105">Join WhatsApp</a>
           </div>
 
+          {/* Stats grid (participants, ideas, tracks, innovation) */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
               <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{participants}+</div>
@@ -118,3 +128,5 @@ const Header = () => {
 };
 
 export default Header;
+
+// End HEADER COMPONENT
