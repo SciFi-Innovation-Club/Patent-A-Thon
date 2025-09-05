@@ -17,9 +17,16 @@ const Header = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 pt-20 pb-16 min-h-screen flex flex-col justify-center">
         <div className="text-center">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 mt-10">
             Patent-A-Thon 1.0
           </h1>
+          {/* Mobile only: Ideate • Innovate • Patent */}
+          <div className="flex md:hidden justify-center">
+            <span className="text-base font-semibold text-white bg-black bg-transparent px-4 py-2 rounded-lg shadow">
+              Ideate &bull; Innovate &bull; Patent
+            </span>
+          </div>
+         
           
           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Join Chandigarh University&apos;s premier patent-focused innovation
