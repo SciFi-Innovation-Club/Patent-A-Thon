@@ -1,110 +1,64 @@
-// EVENT TIMELINE COMPONENT
-// This section shows the event timeline.
-// To add or change a timeline event, edit the 'timeline' array below.
-// You can change the date, title, icon, or color for each event.
-
 'use client';
-import { Calendar, FileText, Upload, Award, Trophy, Flag } from 'lucide-react';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
-const EventTimeline = () => {
-  const timeline = [
-    {
-      date: "29 Aug",
-      title: "Registration Start",
-      icon: Calendar,
-      color: "bg-blue-500"
-    },
-    {
-      date: "13 Sep",
-      title: "Registration End",
-      icon: Calendar,
-      color: "bg-red-500"
-    },
-    {
-      date: "17 Sep",
-      title: "Draft to Craft",
-      icon: FileText,
-      color: "bg-green-500"
-    },
-    {
-      date: "26 Sep",
-      title: "Compile to File",
-      icon: Upload,
-      color: "bg-yellow-500"
-    },
-    {
-      date: "15 Oct",
-      title: "Grand Finale",
-      icon: Award,
-      color: "bg-purple-500"
-    },
-    {
-      date: "17 Oct",
-      title: "Patent-a-thon 1.0",
-      icon: Trophy,
-      color: "bg-indigo-500"
-    }
-  ];
+const timeline = [
+  { date: "29 Aug", title: "Registration Start", desc: "Kick-off your journey here!" },
+  { date: "13 Sep", title: "Registration End", desc: "Last chance to register!" },
+  { date: "17 Sep", title: "Draft to Craft", desc: "Turn your raw ideas into structured drafts." },
+  { date: "26 Sep", title: "Compile to File", desc: "Prepare your submissions in final form." },
+  { date: "15 Oct", title: "Grand Finale", desc: "Showcase your innovation to the jury." },
+  { date: "17 Oct", title: "Patent-a-thon 1.0", desc: "Celebrate the innovators and winners." }
+];
 
-  // Intersection Observer for fade-in animation
-  useEffect(() => {
-    const items = document.querySelectorAll('.timeline-fade');
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-        }
-      });
-    }, { threshold: 0.3 });
-    items.forEach(item => {
-      observer.observe(item);
-    });
-    return () => items.forEach(item => observer.unobserve(item));
-  }, []);
+export default function EventTimeline() {
+  const [hovered, setHovered] = useState(-1);
 
   return (
-    <section id="timeline" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Section title and intro */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Event Timeline</h2>
-          <p className="text-lg text-green-400 font-semibold animate-pulse">Follow the journey, step by step!</p>
-        </div>
+    <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+          Event Timeline
+        </h2>
+
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-green-400 via-blue-500 to-purple-600 h-full shadow-lg"></div>
-          <div className="space-y-12">
-            {/* Timeline grid: each card shows icon, date, title, and animation */}
-            {timeline.map((item, index) => {
-              const IconComponent = item.icon;
-              const isEven = index % 2 === 0;
-              return (
-                <div key={index} className={`flex items-center ${isEven ? 'justify-start' : 'justify-end'}`}>
-                  <div className={`relative ${isEven ? 'pr-8' : 'pl-8'} ${isEven ? 'text-right' : 'text-left'} w-full md:w-1/2`}>
-                    <div className="timeline-fade opacity-0 translate-y-8 transition-all duration-700 bg-gray-800/80 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-gray-700 hover:border-green-400 shadow-lg group">
-                      <div className={`flex items-center gap-4 ${isEven ? 'justify-end' : 'justify-start'}`}>
-                        <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}>
-                          <IconComponent className="w-6 h-6 text-white" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-xl md:text-2xl font-bold text-white mb-1 break-words">{item.date}</div>
-                          <div className="text-gray-300 text-base md:text-lg break-words">{item.title}</div>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Timeline dot */}
-                    <div className={`absolute top-1/2 transform -translate-y-1/2 w-6 h-6 ${item.color} rounded-full border-4 border-black ${isEven ? '-right-3' : '-left-3'} transition-transform duration-300 group-hover:scale-125`}></div>
-                  </div>
+          {/* Vertical line */}
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-green-400 via-blue-500 to-purple-500 h-full rounded-full"></div>
+
+          {timeline.map((item, i) => {
+            const isLeft = i % 2 === 0;
+            const isActive = hovered === i;
+
+            return (
+              <div
+                key={i}
+                className={`relative flex w-full mb-16 
+                  ${isLeft ? 'md:justify-start' : 'md:justify-end'} justify-start`}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(-1)}
+              >
+                {/* Card */}
+                <div
+                  className={`max-w-md p-6 rounded-xl border bg-gray-800/80 backdrop-blur-sm shadow-xl transition-all duration-500
+                  ${isLeft ? 'md:mr-auto md:pr-8 md:text-right' : 'md:ml-auto md:pl-8 md:text-left'}
+                  ${isActive ? 'border-green-400 scale-105' : 'border-gray-700'}
+                  ml-12 md:ml-0`}
+                >
+                  <h3 className="text-lg md:text-xl font-bold text-white">
+                    {item.date} — {item.title}
+                  </h3>
+                  {isActive && <p className="mt-2 text-gray-300 text-sm md:text-base">{item.desc}</p>}
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Diamond marker */}
+                <div
+                  className={`absolute top-1/2 left-4 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-6 h-6 transition-all duration-500
+                  ${isActive ? 'bg-green-400 scale-125 shadow-lg shadow-green-400/60' : 'bg-gray-700'}`}
+                ></div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-};
-
-export default EventTimeline;
-// End EVENT TIMELINE COMPONENT
+}
