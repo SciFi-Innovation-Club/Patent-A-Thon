@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Patent-A-Thon 1.0 | Innovation Event",
+  title: "Patent-A-Thon 1.0",
   description: "Join Patent-A-Thon 1.0 - Premier patent-focused innovation event where groundbreaking ideas transform into protected intellectual property.",
 };
 

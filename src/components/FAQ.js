@@ -17,11 +17,11 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Who can participate in Patent-a-thon 1.0?",
-      answer: "All undergraduate and graduate students from recognized universities and colleges can participate."
+      answer: "All undergraduate and graduate students from any discipline are welcome to join."
     },
     {
       question: "What is the team size limit?",
-      answer: "Teams can have 2-4 members. Solo participation is also allowed."
+      answer: "Teams can have 1-3 members. Solo participation is also allowed."
     },
     {
       question: "Do I need prior patent experience?",
@@ -29,7 +29,7 @@ const FAQ = () => {
     },
     {
       question: "What should I bring to the event?",
-      answer: "Bring your laptop, chargers, and any hardware you might need. Food and refreshments will be provided."
+      answer: "Bring your laptop, chargers, and any hardware you might need."
     },
     {
       question: "How will intellectual property be handled?",
@@ -38,6 +38,10 @@ const FAQ = () => {
     {
       question: "Is there any registration fee?",
       answer: "No, the event is completely free for all participants."
+    },
+    {
+      question: "Why trust us?",
+      answer: "We will not disclose your idea and you retain full ownership of your innovation. Your confidentiality and rights are our top priority."
     }
   ];
 
