@@ -6,6 +6,8 @@ import ExpertMentors from '../components/ExpertMentors';
 import CommunityPartners from '../components/CommunityPartners';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import { Club } from 'lucide-react';
+// import ClubShowcase from '@/components/ClubShowcase';
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
       <ExpertMentors />
       <CommunityPartners />
       <FAQ />
+      {/* <ClubShowcase /> */}
       <Footer />
     </div>
   );
