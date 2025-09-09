@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const timeline = [
   { date: "29 Aug", title: "Registration Start", desc: "Kick-off your journey here!" },
@@ -12,10 +13,11 @@ const timeline = [
 
 export default function EventTimeline() {
   const [hovered, setHovered] = useState(-1);
+  const { isDarkMode } = useTheme(); // Use global theme context
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className={`py-20 transition-colors duration-500 ${isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-gray-100 via-gray-200 to-gray-100'}`}>
+      <div className="max-w-full mx-auto px-8">
         <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
           Event Timeline
         </h2>
@@ -38,15 +40,16 @@ export default function EventTimeline() {
               >
                 {/* Card */}
                 <div
-                  className={`max-w-md p-6 rounded-xl border bg-gray-800/80 backdrop-blur-sm shadow-xl transition-all duration-500
+                  className={`max-w-md p-6 rounded-xl border backdrop-blur-sm shadow-xl transition-all duration-500
                   ${isLeft ? 'md:mr-auto md:pr-8 md:text-right' : 'md:ml-auto md:pl-8 md:text-left'}
-                  ${isActive ? 'border-green-400 scale-105' : 'border-gray-700'}
+                  ${isActive ? 'border-green-400 scale-105' : isDarkMode ? 'border-gray-700' : 'border-gray-300'}
+                  ${isDarkMode ? 'bg-gray-800/80' : 'bg-white/80'}
                   ml-12 md:ml-0`}
                 >
-                  <h3 className="text-lg md:text-xl font-bold text-white">
+                  <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                     {item.date} — {item.title}
                   </h3>
-                  {isActive && <p className="mt-2 text-gray-300 text-sm md:text-base">{item.desc}</p>}
+                  {isActive && <p className={`mt-2 text-sm md:text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{item.desc}</p>}
                 </div>
 
                 {/* Diamond marker */}

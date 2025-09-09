@@ -2,7 +2,10 @@
 // Section for displaying mentor profiles with LinkedIn links
 // To add/edit mentors, update the 'mentors' array below
 
+'use client';
+
 import Image from 'next/image';
+import { useTheme } from '../contexts/ThemeContext';
 
 const LinkedInIcon = () => (
   // LinkedIn SVG icon for mentor profiles
@@ -12,6 +15,8 @@ const LinkedInIcon = () => (
 );
 
 const ExpertMentors = () => {
+  const { isDarkMode } = useTheme(); // Use global theme context
+  
   const mentors = [
     {
       name: "Dr. Sachin Ahuja",
@@ -44,12 +49,12 @@ const ExpertMentors = () => {
   ];
 
   return (
-    <section id="mentors" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="mentors" className={`py-20 transition-colors duration-500 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+      <div className="max-w-full mx-auto px-8">
         {/* Section title and intro */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Expert Mentors</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Expert Mentors</h2>
+          <p className={`text-xl max-w-3xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Learn from industry experts and academic leaders
           </p>
         </div>
@@ -59,7 +64,7 @@ const ExpertMentors = () => {
           {mentors.map((mentor, index) => (
             <div
               key={index}
-              className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-green-400 hover:bg-gray-800/90 transition-all duration-300 text-center group"
+              className={`backdrop-blur-sm rounded-xl p-8 border hover:border-green-400 transition-all duration-300 text-center group ${isDarkMode ? 'bg-gray-800/80 border-gray-700 hover:bg-gray-800/90' : 'bg-white/80 border-gray-300 hover:bg-white/90'}`}
             >
               <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-green-400 transition-colors duration-300">
                 <Image
@@ -69,13 +74,13 @@ const ExpertMentors = () => {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-green-400 transition-colors">
+              <h3 className={`text-xl font-semibold mb-3 group-hover:text-green-400 transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 {mentor.name}
               </h3>
               <p className="text-green-400 font-medium mb-2">
                 {mentor.position}
               </p>
-              <p className="text-gray-300 text-sm mb-2">
+              <p className={`text-sm mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 {mentor.organization}
               </p>
               <a

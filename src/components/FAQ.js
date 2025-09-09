@@ -8,9 +8,11 @@
 
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const FAQ = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
+  const { isDarkMode } = useTheme(); // Use global theme context
 
   const faqs = [
     {
@@ -44,11 +46,11 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-gray-900">
-      <div className="max-w-4xl mx-auto px-4">
+    <section id="faq" className={`py-20 transition-colors duration-500 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+      <div className="max-w-full mx-auto px-8">
         {/* Section title and intro */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Frequently Asked Questions</h2>
         </div>
         
         {/* FAQ grid: each card shows question and answer, toggleable */}
@@ -56,13 +58,13 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden hover:border-green-400 transition-all duration-300"
+              className={`backdrop-blur-sm border rounded-xl overflow-hidden hover:border-green-400 transition-all duration-300 ${isDarkMode ? 'bg-gray-800/80 border-gray-700' : 'bg-white/80 border-gray-300'}`}
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 text-left bg-transparent hover:bg-gray-800/30 transition-colors duration-200 flex items-center justify-between"
+                className={`w-full px-8 py-6 text-left bg-transparent transition-colors duration-200 flex items-center justify-between ${isDarkMode ? 'hover:bg-gray-800/30' : 'hover:bg-gray-100/30'}`}
               >
-                <span className="font-semibold text-white pr-4">
+                <span className={`font-semibold pr-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   {faq.question}
                 </span>
                 {openFAQ === index ? (
@@ -73,8 +75,8 @@ const FAQ = () => {
               </button>
               
               {openFAQ === index && (
-                <div className="px-8 py-6 bg-gray-800/30 border-t border-gray-700">
-                  <p className="text-gray-300 leading-relaxed">
+                <div className={`px-8 py-6 border-t ${isDarkMode ? 'bg-gray-800/30 border-gray-700' : 'bg-gray-100/30 border-gray-300'}`}>
+                  <p className={`leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     {faq.answer}
                   </p>
                 </div>
