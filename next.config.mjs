@@ -8,6 +8,18 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'sficcu.vercel.app',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'alcorfund.com',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 };

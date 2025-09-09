@@ -73,7 +73,7 @@ const InnovationTracks = () => {
       title: "Open Innovation",
       description: "Any innovative solution across all domains and industries",
       color: "bg-pink-500/20 text-pink-400",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop&crop=center"
+      image: "https://alcorfund.com/wp-content/uploads/2020/09/Open-Innovation-Header.png"
     }
   ];
 

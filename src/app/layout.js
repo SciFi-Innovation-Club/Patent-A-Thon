@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Patent-A-Thon 1.0",
   description: "Join Patent-A-Thon 1.0 - Premier patent-focused innovation event where groundbreaking ideas transform into protected intellectual property.",
+  icons: {
+    icon: '/LOGO.svg',
+    shortcut: '/LOGO.svg',
+    apple: '/LOGO.svg',
+  },
 };
 
 export default function RootLayout({ children }) {
