@@ -27,14 +27,14 @@ const ExpertMentors = () => {
     },
     {
       name: "Dr. Ruchika Gupta",
-      position: "AD UIE Research",
+      position: "AD-UIE Research and Outreach",
       organization: "Chandigarh University",
       image: "/Ruchika M.jpeg",
       linkedin: "https://www.linkedin.com/in/ruchikagupta09/"
     },
     {
       name: "Dr. Puneet Kumar",
-      position: "AD CSE",
+      position: "AD-CSE",
       organization: "Chandigarh University",
       image: "/Puneet SIr.jpeg",
       linkedin: "https://www.linkedin.com/in/dr-puneet-kumar-2a84b531/"
@@ -45,6 +45,13 @@ const ExpertMentors = () => {
       organization: "Chandigarh University",
       image: "/Gurmeet.jpeg",
       linkedin: "https://www.linkedin.com/in/gurmeet-kaur-saini-4b6815213/"
+    },
+    {
+      name: "Bhavneet Kaur",
+      position: "Assistant Professor",
+      organization: "Chandigarh University",
+      image: "/Bhavneet.jpeg",
+      linkedin: "https://www.linkedin.com/in/bhavneet-kaur-a8095153/"
     }
   ];
 
@@ -60,38 +67,43 @@ const ExpertMentors = () => {
         </div>
         
         {/* Mentors grid: each card shows image, name, position, organization, and LinkedIn link */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {mentors.map((mentor, index) => (
             <div
               key={index}
-              className={`backdrop-blur-sm rounded-xl p-8 border hover:border-green-400 transition-all duration-300 text-center group ${isDarkMode ? 'bg-gray-800/80 border-gray-700 hover:bg-gray-800/90' : 'bg-white/80 border-gray-300 hover:bg-white/90'}`}
+              className={`backdrop-blur-sm rounded-xl p-6 border-2 transition-all duration-500 text-center group relative overflow-hidden hover:shadow-lg hover:transform hover:scale-105 ${isDarkMode ? 'bg-gray-800/80 border-gray-700 hover:border-green-400 hover:bg-gray-800/90 hover:shadow-green-400/20' : 'bg-white/90 border-blue-200 hover:border-blue-400 hover:bg-white hover:shadow-blue-400/20'}`}
             >
-              <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-600 group-hover:border-green-400 transition-colors duration-300">
-                <Image
-                  src={mentor.image}
-                  alt={`${mentor.name} portrait`}
-                  fill
-                  className="object-cover"
-                />
+              {/* Animated border effect */}
+              <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse ${isDarkMode ? 'bg-gradient-to-r from-green-400/10 via-blue-500/10 to-purple-600/10' : 'bg-gradient-to-r from-blue-400/10 via-purple-500/10 to-indigo-600/10'}`}></div>
+              
+              <div className="relative z-10">
+                <div className={`relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 transition-all duration-300 ${isDarkMode ? 'border-gray-600 group-hover:border-green-400' : 'border-blue-300 group-hover:border-blue-500'}`}>
+                  <Image
+                    src={mentor.image}
+                    alt={`${mentor.name} portrait`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className={`text-lg font-semibold mb-2 transition-colors duration-300 ${isDarkMode ? 'text-white group-hover:text-green-400' : 'text-gray-900 group-hover:text-blue-600'}`}>
+                  {mentor.name}
+                </h3>
+                <p className={`font-medium mb-2 text-sm transition-colors duration-300 ${isDarkMode ? 'text-green-400' : 'text-blue-500 group-hover:text-blue-600'}`}>
+                  {mentor.position}
+                </p>
+                <p className={`text-xs mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {mentor.organization}
+                </p>
+                <a
+                  href={mentor.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center gap-1 font-medium text-sm mt-2 transition-colors duration-300 ${isDarkMode ? 'text-blue-400 hover:text-green-400' : 'text-blue-600 hover:text-blue-800'}`}
+                >
+                  <LinkedInIcon />
+                  LinkedIn
+                </a>
               </div>
-              <h3 className={`text-xl font-semibold mb-3 group-hover:text-green-400 transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                {mentor.name}
-              </h3>
-              <p className="text-green-400 font-medium mb-2">
-                {mentor.position}
-              </p>
-              <p className={`text-sm mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                {mentor.organization}
-              </p>
-              <a
-                href={mentor.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1 text-blue-500 hover:text-green-400 font-medium text-sm mt-2"
-              >
-                <LinkedInIcon />
-                LinkedIn
-              </a>
             </div>
           ))}
         </div>
