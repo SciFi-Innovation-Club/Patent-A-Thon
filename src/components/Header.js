@@ -8,8 +8,11 @@
 
 import { Calendar, Clock, MapPin } from 'lucide-react';
 import { useEffect, useState } from "react";
+import { useTheme } from '../contexts/ThemeContext';
 
 const Header = () => {
+  const { isDarkMode } = useTheme(); // Use global theme context
+  
   // Animated counter hook
 
   function useCountUp(to, duration = 2000) {
@@ -51,45 +54,48 @@ const Header = () => {
   const participants = useCountUp(startCount ? 500 : 0, 10000);
 
   return (
-    <header id="main-header" className="min-h-screen bg-black text-white relative overflow-hidden">
+    <header id="main-header" className={`min-h-screen relative overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-gray-900'}`}>
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]"></div>
+      <div className={`absolute inset-0 transition-all duration-500 ${isDarkMode ? 'bg-gradient-to-br from-black via-gray-900 to-black' : 'bg-gradient-to-br from-gray-100 via-white to-gray-100'}`}>
+        <div className={`absolute inset-0 ${isDarkMode ? 'bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]' : 'bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.05),transparent_50%)]'}`}></div>
       </div>
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-green-500/20 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-xl"></div>
-      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl"></div>
-      <div className="relative max-w-7xl mx-auto px-4 pt-20 pb-16 min-h-screen flex flex-col justify-center">
-        <div className="text-center">
-          {/* Main event title and tagline */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 mt-10">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-green-500/20 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl"></div>
+        <div className="relative max-w-full mx-auto px-8 pt-20 pb-16 min-h-screen flex flex-col justify-center">
+          
+          <div className="text-center">
+            {/* Main event title */}
+            <div className="mt-6">
+          <h1 className={`text-3xl md:text-4xl lg:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            Sci-Fi Innovation Club
+          </h1>
+          <h2 className='text-xl md:text-xl lg:text-xl font-semibold text-gray-900'>Presents</h2>
+            </div>
+            <div className="mb-2">
+          <h1 className={`text-4xl md:text-6xl lg:text-6xl font-bold tracking-tight bg-clip-text text-transparent ${isDarkMode ? 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600' : 'bg-gradient-to-r from-green-600 via-blue-600 to-purple-700'}`}>
             Patent-A-Thon 1.0
           </h1>
-          {/* Mobile only: Ideate • Innovate • Patent */}
-          <div className="flex md:hidden justify-center">
-            <span className="text-base font-semibold text-white bg-black bg-transparent px-4 py-2 rounded-lg shadow">
-              Ideate &bull; Innovate &bull; Patent
-            </span>
-          </div>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Join Chandigarh University&apos;s premier patent-focused innovation event where groundbreaking ideas transform into protected intellectual property.
-          </p>
-          {/* Event details (date, time, venue) */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-8 mb-12">
-            <div className="flex items-center gap-3 text-base lg:text-lg">
-              <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
-                <Calendar className="w-4 h-4 text-green-400" />
-              </div>
-              <span className="font-semibold">17 October 2025</span>
             </div>
-            <div className="flex items-center gap-3 text-base lg:text-lg">
+            <p className={`text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-800'}`}>
+          Join Patent-a-thon 1.0 at Chandigarh University and turn your innovative ideas into protected intellectual property. Register now and be part of this groundbreaking innovation event
+            </p>
+            {/* Event details (date, time, venue) */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-8 mb-12">
+            <div className={`flex items-center gap-3 text-base lg:text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
+              <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
+                <Calendar className="w-4 h-4 text-blue-400" />
+              </div>
+              <span className="font-semibold">Date Announced Soon</span>
+            </div>
+            <div className={`flex items-center gap-3 text-base lg:text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
               <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
                 <Clock className="w-4 h-4 text-blue-400" />
               </div>
               <span className="font-semibold">Full Day Event</span>
             </div>
-            <div className="flex items-center gap-3 text-base lg:text-lg">
+            <div className={`flex items-center gap-3 text-base lg:text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
               <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center">
                 <MapPin className="w-4 h-4 text-purple-400" />
               </div>
@@ -98,27 +104,47 @@ const Header = () => {
           </div>
           {/* Registration and WhatsApp buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <a href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit" target="_blank" rel="noopener noreferrer" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25">Register Now</a>
-            <a href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c" target="_blank" rel="noopener noreferrer" className="border-2 border-gray-600 hover:border-green-500 text-gray-300 hover:text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105">Join WhatsApp</a>
+            <a
+              href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg
+                ${isDarkMode
+                  ? 'bg-green-600 hover:bg-green-800 text-white hover:shadow-purple-500/25'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-blue-500/25'
+                }`}
+            >
+              Register Now
+            </a>
+            <a
+              href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`border-2 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105
+                ${isDarkMode
+                  ? 'border-green-400 text-white hover:border-green-400 hover:text-green-300'
+                  : 'border-gray-600 text-gray-900 hover:border-black-500 hover:text-black'
+                }`}
+            >
+              Join WhatsApp
+            </a>
           </div>
-
-          {/* Stats grid (participants, ideas, tracks, innovation) */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+            <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>
               <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{participants}+</div>
-              <div className="text-gray-400 text-sm lg:text-base">Participants</div>
+              <div className={`text-sm lg:text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Participants</div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
-              <div className="text-3xl lg:text-4xl font-bold text-blue-400 mb-2">∞</div>
-              <div className="text-gray-400 text-sm lg:text-base">Ideas</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+            <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>
               <div className="text-3xl lg:text-4xl font-bold text-purple-400 mb-2">9</div>
-              <div className="text-gray-400 text-sm lg:text-base">Tracks</div>
+              <div className={`text-sm lg:text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Tracks</div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-gray-800">
+            <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>
               <div className="text-3xl lg:text-4xl font-bold text-yellow-400 mb-2">∞</div>
-              <div className="text-gray-400 text-sm lg:text-base">Innovation</div>
+              <div className={`text-sm lg:text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Innovation</div>
+            </div>
+                        <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>
+              <div className="text-3xl lg:text-4xl font-bold text-blue-400 mb-2">17+</div>
+              <div className={`text-sm lg:text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Events Organised</div>
             </div>
           </div>
         </div>

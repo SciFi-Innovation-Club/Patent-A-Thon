@@ -10,49 +10,73 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import Image from 'next/image';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme(); // Use global theme context
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo and tagline */}
-          <div className="flex items-center flex-col sm:flex-row">
-            <h1 className="text-xl font-bold text-white">Patent-A-Thon 1.0</h1>
-            <span className="ml-3 text-sm text-gray-400 hidden sm:block">Ideate • Innovate • Patent</span>
-            <span className="block sm:hidden text-sm text-gray-400 mt-1 mr-4">Ideate • Innovate • Patent</span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b ${isDarkMode ? 'bg-black/90 border-gray-800' : 'bg-white/90 border-gray-200'}`}>
+      <div className="max-w-full mx-auto px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo, title and tagline section */}
+          <div className="flex items-center gap-4">
+            {/* Logo */}
+            <div className="w-16 h-16 mt-0 rounded-full items-center justify-center text-white font-bold text-xl">
+              <Image
+                src={isDarkMode ? "/LOGO.png" : "/LOGO-black.png"}
+                alt="Patent-A-Thon Logo"
+                width={64}
+                height={64}
+                className="rounded-full"
+                priority
+              />
+            </div>
+            {/* Title and tagline */}
+            <div className="flex flex-col">
+              <h1 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Patent-A-Thon 1.0
+              </h1>
+              <span className={`text-sm text-green-400 font-semibold ${isDarkMode ? 'text-green' : 'text-purple-700'}`}>
+                Ideate • Innovate • Invent
+              </span>
+            </div>
           </div>
 
-          {/* Desktop navigation links */}
+        {/* Desktop navigation links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#tracks" className="text-gray-300 hover:text-white transition-colors">
+            <a href="#tracks" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
               Tracks
             </a>
-            <a href="#timeline" className="text-gray-300 hover:text-white transition-colors">
+            <a href="#timeline" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
               Timeline
             </a>
-            <a href="#mentors" className="text-gray-300 hover:text-white transition-colors">
+            <a href="#mentors" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
               Mentors
             </a>
-            <a href="#faq" className="text-gray-300 hover:text-white transition-colors">
+            <a href="#faq" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
               FAQ
             </a>
           </div>
 
-          {/* Desktop CTA buttons */}
+          {/* Desktop CTA buttons and Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition-colors"
+              className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                isDarkMode
+                  ? 'bg-green-600 hover:bg-green-700 text-white'
+                  : 'bg-blue-700 hover:bg-blue-800 text-white'
+              }`}
             >
               Register Now
             </a>
@@ -60,17 +84,36 @@ const Navigation = () => {
               href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white px-6 py-2 rounded-full font-medium transition-colors"
+              className={`border px-6 py-2 rounded-full font-medium transition-colors ${isDarkMode ? 'border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white' : 'border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-900'}`}
             >
               Join WhatsApp
             </a>
+            
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition-all duration-200 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-yellow-400' : 'bg-gray-200 hover:bg-gray-300 text-gray-700'}`}
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
           </div>
 
-          {/* Mobile menu button and mobile menu */}
-          <div className="md:hidden">
+          {/* Mobile menu button and theme toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition-all duration-200 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 text-yellow-400' : 'bg-gray-200 hover:bg-gray-300 text-gray-700'}`}
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+            
+            {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="text-gray-300 hover:text-white focus:outline-none"
+              className={`focus:outline-none ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -79,32 +122,32 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-black/95 border-t border-gray-800">
+          <div className={`md:hidden border-t ${isDarkMode ? 'bg-black/95 border-gray-800' : 'bg-white/95 border-gray-200'}`}>
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a
                 href="#tracks"
-                className="block px-3 py-2 text-gray-300 hover:text-white transition-colors"
+                className={`block px-3 py-2 transition-colors ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={toggleMenu}
               >
                 Tracks
               </a>
               <a
                 href="#timeline"
-                className="block px-3 py-2 text-gray-300 hover:text-white transition-colors"
+                className={`block px-3 py-2 transition-colors ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={toggleMenu}
               >
                 Timeline
               </a>
               <a
                 href="#mentors"
-                className="block px-3 py-2 text-gray-300 hover:text-white transition-colors"
+                className={`block px-3 py-2 transition-colors ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={toggleMenu}
               >
                 Mentors
               </a>
               <a
                 href="#faq"
-                className="block px-3 py-2 text-gray-300 hover:text-white transition-colors"
+                className={`block px-3 py-2 transition-colors ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
                 onClick={toggleMenu}
               >
                 FAQ
@@ -122,7 +165,7 @@ const Navigation = () => {
                   href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white px-3 py-2 rounded-full font-medium transition-colors text-center"
+                  className={`block border px-3 py-2 rounded-full font-medium transition-colors text-center ${isDarkMode ? 'border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white' : 'border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-900'}`}
                 >
                   Join WhatsApp
                 </a>
