@@ -35,6 +35,40 @@ const Header = () => {
   // Only start counting when header is visible
   const [startCount, setStartCount] = useState(false);
 
+  // Countdown timer state
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  // Calculate countdown to September 10th, 2025 at 6 PM
+  useEffect(() => {
+    const targetDate = new Date('2025-09-10T18:00:00').getTime();
+    
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const header = document.getElementById('main-header');
@@ -71,7 +105,7 @@ const Header = () => {
           <h1 className={`text-3xl md:text-4xl lg:text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             Sci-Fi Innovation Club
           </h1>
-          <h2 className='text-xl md:text-xl lg:text-xl font-semibold text-gray-900'>Presents</h2>
+          <h2 className={`text-xl md:text-xl lg:text-xl font-semibold ${isDarkMode ? 'text-white-1000' : 'text-gray-900'}`}>Presents</h2>
             </div>
             <div className="mb-2">
           <h1 className={`text-4xl md:text-6xl lg:text-6xl font-bold tracking-tight bg-clip-text text-transparent ${isDarkMode ? 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600' : 'bg-gradient-to-r from-green-600 via-blue-600 to-purple-700'}`}>
@@ -102,10 +136,36 @@ const Header = () => {
               <a href="https://maps.app.goo.gl/AiwNVUqkVgkSVL6B7" className="font-semibold hover:text-green-400 transition-colors" target="_blank" rel="noopener noreferrer">Chandigarh University</a>
             </div>
           </div>
+          
+          {/* Countdown Timer */}
+          <div className="mb-8">
+            <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              Registration Starts In
+            </h3>
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className={`backdrop-blur-sm rounded-lg p-4 border transition-all duration-300 ${isDarkMode ? 'bg-white/10 border-green-500/30' : 'bg-white/90 border-green-500/40'} min-w-[80px]`}>
+                <div className="text-2xl md:text-3xl font-bold text-green-400">{timeLeft.days}</div>
+                <div className={`text-xs md:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Days</div>
+              </div>
+              <div className={`backdrop-blur-sm rounded-lg p-4 border transition-all duration-300 ${isDarkMode ? 'bg-white/10 border-blue-500/30' : 'bg-white/90 border-blue-500/40'} min-w-[80px]`}>
+                <div className="text-2xl md:text-3xl font-bold text-blue-400">{timeLeft.hours}</div>
+                <div className={`text-xs md:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Hours</div>
+              </div>
+              <div className={`backdrop-blur-sm rounded-lg p-4 border transition-all duration-300 ${isDarkMode ? 'bg-white/10 border-purple-500/30' : 'bg-white/90 border-purple-500/40'} min-w-[80px]`}>
+                <div className="text-2xl md:text-3xl font-bold text-purple-400">{timeLeft.minutes}</div>
+                <div className={`text-xs md:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Minutes</div>
+              </div>
+              <div className={`backdrop-blur-sm rounded-lg p-4 border transition-all duration-300 ${isDarkMode ? 'bg-white/10 border-yellow-500/30' : 'bg-white/90 border-yellow-500/40'} min-w-[80px] animate-pulse`}>
+                <div className="text-2xl md:text-3xl font-bold text-yellow-400">{timeLeft.seconds}</div>
+                <div className={`text-xs md:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Seconds</div>
+              </div>
+            </div>
+          </div>
+
           {/* Registration and WhatsApp buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <a
-              href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
+            {/* <a
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg
@@ -114,8 +174,8 @@ const Header = () => {
                   : 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-blue-500/25'
                 }`}
             >
-              Register Now
-            </a>
+              Registration starts Soon
+            </a> */}
             <a
               href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
               target="_blank"
