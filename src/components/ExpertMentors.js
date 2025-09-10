@@ -34,7 +34,7 @@ const ExpertMentors = () => {
     },
     {
       name: "Dr. Puneet Kumar",
-      position: "AD-CSE",
+      position: "AD-CSE 2nd Year",
       organization: "Chandigarh University",
       image: "/Puneet SIr.jpeg",
       linkedin: "https://www.linkedin.com/in/dr-puneet-kumar-2a84b531/"
