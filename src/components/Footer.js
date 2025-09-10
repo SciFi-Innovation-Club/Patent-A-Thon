@@ -146,7 +146,7 @@ const Footer = () => {
           {/* Action Buttons - moved below club section */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <a
-              href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
+              href="https://cuintranet.in/clubs"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25"
