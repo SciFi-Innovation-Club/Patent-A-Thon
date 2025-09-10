@@ -43,9 +43,9 @@ const Header = () => {
     seconds: 0
   });
 
-  // Calculate countdown to September 10th, 2025 at 6 PM
+  // Calculate countdown to September 20th, 2025 at 6 PM
   useEffect(() => {
-    const targetDate = new Date('2025-09-10T18:00:00').getTime();
+    const targetDate = new Date('2025-09-20T23:59:59').getTime();
     
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -140,7 +140,7 @@ const Header = () => {
           {/* Countdown Timer */}
           <div className="mb-8">
             <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              Registration Starts In
+              Registration Ends In
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               <div className={`backdrop-blur-sm rounded-lg p-4 border transition-all duration-300 ${isDarkMode ? 'bg-white/10 border-green-500/30' : 'bg-white/90 border-green-500/40'} min-w-[80px]`}>
@@ -164,8 +164,8 @@ const Header = () => {
 
           {/* Registration and WhatsApp buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            {/* <a
-              href="#"
+            <a
+              href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg
@@ -174,8 +174,8 @@ const Header = () => {
                   : 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-blue-500/25'
                 }`}
             >
-              Registration starts Soon
-            </a> */}
+              Register Now
+            </a> 
             <a
               href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
               target="_blank"
