@@ -99,7 +99,7 @@ const Header = () => {
               <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center">
                 <MapPin className="w-4 h-4 text-purple-400" />
               </div>
-              <a href="https://maps.app.goo.gl/gN7rDhjEsALJ4TAz8" className="font-semibold hover:text-green-400 transition-colors" target="_blank" rel="noopener noreferrer">Chandigarh University</a>
+              <a href="https://maps.app.goo.gl/AiwNVUqkVgkSVL6B7" className="font-semibold hover:text-green-400 transition-colors" target="_blank" rel="noopener noreferrer">Chandigarh University</a>
             </div>
           </div>
           {/* Registration and WhatsApp buttons */}

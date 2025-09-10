@@ -19,6 +19,12 @@ const nextConfig = {
         hostname: 'alcorfund.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'qentelli.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
