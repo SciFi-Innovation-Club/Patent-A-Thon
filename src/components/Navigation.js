@@ -68,7 +68,7 @@ const Navigation = () => {
 
           {/* Desktop CTA buttons and Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* <a
+            <a
               href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
               target="_blank"
               rel="noopener noreferrer"
@@ -79,7 +79,7 @@ const Navigation = () => {
               }`}
             >
               Register Now
-            </a> */}
+            </a>
             <a
               href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
               target="_blank"
@@ -153,14 +153,14 @@ const Navigation = () => {
                 FAQ
               </a>
               <div className="pt-4 space-y-2">
-                {/* <a
+                <a
                   href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-full font-medium transition-colors text-center"
                 >
                   Register Now
-                </a> */}
+                </a>
                 <a
                   href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
                   target="_blank"
