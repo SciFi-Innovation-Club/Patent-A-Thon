@@ -47,7 +47,7 @@ const ExpertMentors = () => {
       linkedin: "https://www.linkedin.com/in/gurmeet-kaur-saini-4b6815213/"
     },
     {
-      name: "Bhavneet Kaur",
+      name: "Er. Bhavneet Kaur",
       position: "Assistant Professor",
       organization: "Chandigarh University",
       image: "/Bhavneet.jpeg",
