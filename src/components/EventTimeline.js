@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const timeline = [
-  { date: "10 Sept", title: "Registration Start", desc: "Kick-off your journey here!" },
-  { date: "20 Sep", title: "Registration End", desc: "Last chance to register!" },
-  { date: "Round 1", title: "Draft to Craft", desc: "Turn your raw ideas into structured drafts." },
-  { date: "Round 2", title: "Compile to File", desc: "Prepare your submissions in final form." },
-  { date: "To Be Announced", title: "Grand Finale", desc: "Showcase your innovation to the jury." },
+  { date: "10 Sept - ", title: "Registration Start", desc: "Kick-off your journey here!" },
+  { date: "20 Sep - ", title: "Registration End", desc: "Last chance to register!" },
+  { date: "Round 1 - ", title: "Draft to Craft", desc: "Turn your raw ideas into structured drafts." },
+  { date: "Round 2 - ", title: "Compile to File", desc: "Prepare your submissions in final form." },
+  { date: "", title: "Grand Finale", desc: "Showcase your innovation to the jury." },
 ];
 
 export default function EventTimeline() {
@@ -52,7 +52,7 @@ export default function EventTimeline() {
                   }}
                 >
                   <h3 className={`text-lg md:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                    {item.date} — {item.title}
+                    {item.date} {item.title}
                   </h3>
                   {isActive && <p className={`mt-2 text-sm md:text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} animate-fade-in`}>
                     {item.desc}

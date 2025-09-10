@@ -164,78 +164,113 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact info and social links grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        {/* Contact info, map and social links grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-green-400">
+            <h3 className="text-xl font-bold mb-4 text-green-400">
               Contact Information
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3">
               <a
                 href="mailto:scifiinnovationclub@gmail.com"
-                className={`flex items-center gap-4 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Mail className="w-5 h-5" />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
+                  <Mail className="w-4 h-4" />
                 </div>
-                <span>scifiinnovationclub@gmail.com</span>
+                <span className="text-sm">scifiinnovationclub@gmail.com</span>
               </a>
               <a
                 href="tel:+919234408229"
-                className={`flex items-center gap-4 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Phone className="w-5 h-5" />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
+                  <Phone className="w-4 h-4" />
                 </div>
-                <span>+91 92344 08229</span>
+                <span className="text-sm">+91 92344 08229 - Harshita (Joint Secretary)</span>
               </a>
               <a
                 href="tel:+919390218260"
-                className={`flex items-center gap-4 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Phone className="w-5 h-5" />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
+                  <Phone className="w-4 h-4" />
                 </div>
-                <span>+91 93902 18260</span>
+                <span className="text-sm">+91 93902 18260 - Ishita (Joint Secretary)</span>
               </a>
               <a
                 href="tel:+917015567105"
-                className={`flex items-center gap-4 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Phone className="w-5 h-5" />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
+                  <Phone className="w-4 h-4" />
                 </div>
-                <span>+91 70155 67105</span>
+                <span className="text-sm">+91 70155 67105 - Krish (Joint Secretary)</span>
               </a>
             </div>
           </div>
 
-          <div className='ml-auto'>
-            <h3 className="text-2xl font-bold mb-6 text-green-400">Follow Us</h3>
-            <div className="flex gap-6">
+          {/* Chandigarh University Map */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-green-400">
+              Location
+            </h3>
+            <div className={`rounded-lg overflow-hidden shadow-md w-96 h-64 mx-auto ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.2665738582047!2d76.57267531513168!3d30.758241681634567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffb140bd63e07%3A0x68591e334d17a988!2sChandigarh%20University!5e0!3m2!1sen!2sin!4v1635000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+                title="Chandigarh University Location"
+              ></iframe>
+            </div>
+            <div className="mt-2 text-center">
+              <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                📍 Mohali, Punjab
+              </p>
+              <a
+                href="https://goo.gl/maps/Cu8YQqKvY7Y2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-1 text-green-400 hover:text-green-300 transition-colors text-xs font-medium"
+              >
+                Directions →
+              </a>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-green-400">Follow Us</h3>
+            <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/scifiinnovationclub?igsh=NDVtamhnOXZsdGpk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-12 h-12 rounded-full flex items-center justify-center hover:bg-pink-500/20 hover:text-pink-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-500/20 hover:text-pink-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
               >
-                <Instagram className="w-6 h-6" />
+                <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="https://www.linkedin.com/company/sci-fi-innovation-club/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
               >
-                <Linkedin className="w-6 h-6" />
+                <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-12 h-12 rounded-full flex items-center justify-center hover:bg-green-500/20 hover:text-green-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-500/20 hover:text-green-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
               >
-                <MessageCircle className="w-6 h-6" />
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
           </div>
