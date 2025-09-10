@@ -27,7 +27,7 @@ const ExpertMentors = () => {
     },
     {
       name: "Dr. Ruchika Gupta",
-      position: "Faculty  Advisor",
+      position: "AD-UIE Research and Outreach",
       organization: "Chandigarh University",
       image: "/Ruchika M.jpeg",
       linkedin: "https://www.linkedin.com/in/ruchikagupta09/"
@@ -48,7 +48,7 @@ const ExpertMentors = () => {
     },
     {
       name: "Er. Bhavneet Kaur",
-      position: "Faculty Co-Advisor",
+      position: "Assistant Professor",
       organization: "Chandigarh University",
       image: "/Bhavneet.jpeg",
       linkedin: "https://www.linkedin.com/in/bhavneet-kaur-a8095153/"
