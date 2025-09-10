@@ -85,7 +85,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const participants = useCountUp(startCount ? 500 : 0, 10000);
+  const participants = useCountUp(startCount ? 0 : 0, 10000);
 
   return (
     <header id="main-header" className={`min-h-screen relative overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-gray-900'}`}>
@@ -191,7 +191,7 @@ const Header = () => {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>
-              <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{participants}+</div>
+              <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{participants}</div>
               <div className={`text-sm lg:text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Participants</div>
             </div>
             <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>
