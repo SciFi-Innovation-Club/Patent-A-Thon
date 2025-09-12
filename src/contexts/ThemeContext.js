@@ -20,7 +20,7 @@ export const useTheme = () => {
 
 // Theme provider component
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false); // Default to light mode
 
   // Load theme from localStorage on component mount
   useEffect(() => {
