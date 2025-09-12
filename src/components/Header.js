@@ -85,7 +85,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const participants = useCountUp(startCount ? 0 : 0, 10000);
+  const participants = useCountUp(startCount ? 150 : 0, 15000);
 
   return (
     <header id="main-header" className={`min-h-screen relative overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-gray-900'}`}>
@@ -116,7 +116,7 @@ const Header = () => {
           Join Patent-a-thon 1.0 at Chandigarh University and turn your innovative ideas into protected intellectual property. Register now and be part of this groundbreaking innovation event
             </p>
             {/* Event details (date, time, venue) */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-8 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-8 mb-6">
             <div className={`flex items-center gap-3 text-base lg:text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
               <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
                 <Calendar className="w-4 h-4 text-blue-400" />
@@ -171,7 +171,7 @@ const Header = () => {
               className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg
                 ${isDarkMode
                   ? 'bg-green-600 hover:bg-green-800 text-white hover:shadow-purple-500/25'
-                  : 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-blue-500/25'
+                  : 'bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white hover:shadow-xl hover:shadow-green-500/30'
                 }`}
             >
               Register Now
@@ -183,7 +183,7 @@ const Header = () => {
               className={`border-2 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105
                 ${isDarkMode
                   ? 'border-green-400 text-white hover:border-green-400 hover:text-green-300'
-                  : 'border-gray-600 text-gray-900 hover:border-black-500 hover:text-black'
+                  : 'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-700 shadow-lg hover:shadow-blue-500/25'
                 }`}
             >
               Join WhatsApp
@@ -191,7 +191,7 @@ const Header = () => {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>
-              <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{participants}</div>
+              <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{participants}+</div>
               <div className={`text-sm lg:text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Participants</div>
             </div>
             <div className={`backdrop-blur-sm rounded-lg p-6 border transition-colors duration-300 ${isDarkMode ? 'bg-white/5 border-gray-800' : 'bg-white/80 border-gray-200'}`}>

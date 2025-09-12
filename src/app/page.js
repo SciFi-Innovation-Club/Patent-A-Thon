@@ -11,7 +11,7 @@ import { Club } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <Header />
       <InnovationTracks />
@@ -21,6 +21,6 @@ export default function Home() {
       <FAQ />
       {/* <ClubShowcase /> */}
       <Footer />
-    </div>
+    </div> 
   );
 }

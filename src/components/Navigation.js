@@ -75,7 +75,7 @@ const Navigation = () => {
               className={`px-6 py-2 rounded-full font-medium transition-colors ${
                 isDarkMode
                   ? 'bg-green-600 hover:bg-green-700 text-white'
-                  : 'bg-blue-700 hover:bg-blue-800 text-white'
+                  : 'bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-lg'
               }`}
             >
               Register Now
@@ -157,7 +157,7 @@ const Navigation = () => {
                   href="https://docs.google.com/forms/d/1fIqW1_lN9XV0re2l6G4Bc79yFwbj9kM5YzNckMkMbzc/edit"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-full font-medium transition-colors text-center"
+                  className="block bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-3 py-2 rounded-full font-medium transition-all duration-300 text-center shadow-lg"
                 >
                   Register Now
                 </a>

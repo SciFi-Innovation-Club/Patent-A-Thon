@@ -8,7 +8,7 @@
 
 'use client';
 
-import { Instagram, Linkedin, MessageCircle, Mail, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Instagram, Linkedin, MessageCircle, Mail, Phone, ChevronLeft, ChevronRight, Youtube } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -149,7 +149,11 @@ const Footer = () => {
               href="https://cuintranet.in/clubs"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25"
+              className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg
+                ${isDarkMode
+                  ? 'bg-green-600 hover:bg-green-800 text-white hover:shadow-purple-500/25'
+                  : 'bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white hover:shadow-xl hover:shadow-green-500/30'
+                }`}
             >
               Apply Now
             </a>
@@ -216,9 +220,9 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4 text-green-400">
               Location
             </h3>
-            <div className={`rounded-lg overflow-hidden shadow-md w-96 h-64 mx-auto ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+            <div className={`rounded-lg overflow-hidden shadow-md w-88 h-64 mx-auto ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.2665738582047!2d76.57267531513168!3d30.758241681634567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffb140bd63e07%3A0x68591e334d17a988!2sChandigarh%20University!5e0!3m2!1sen!2sin!4v1635000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4072.1497734433788!2d76.57560044333876!3d30.77068750658336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedc134ed2ff3%3A0xbe462f3634df604f!2sChandigarh%20University!5e1!3m2!1sen!2sin!4v1757689003639!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -234,7 +238,7 @@ const Footer = () => {
                 📍 Mohali, Punjab
               </p>
               <a
-                href="https://goo.gl/maps/Cu8YQqKvY7Y2"
+                href="https://maps.app.goo.gl/oKGr1o2eNGba5d9p8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-1 text-green-400 hover:text-green-300 transition-colors text-xs font-medium"
@@ -263,6 +267,14 @@ const Footer = () => {
                 className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
               >
                 <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href='https://www.youtube.com/@sci-fiinnovation'
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+              >
+                <Youtube className="w-5 h-5" />
               </a>
               <a
                 href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
