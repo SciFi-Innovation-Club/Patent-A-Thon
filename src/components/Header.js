@@ -45,7 +45,7 @@ const Header = () => {
 
   // Calculate countdown to September 20th, 2025 at 6 PM
   useEffect(() => {
-    const targetDate = new Date('2025-09-20T23:59:59').getTime();
+    const targetDate = new Date('2025-09-30T23:59:59').getTime();
     
     const updateCountdown = () => {
       const now = new Date().getTime();
