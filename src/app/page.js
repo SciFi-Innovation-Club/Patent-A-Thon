@@ -7,6 +7,8 @@ import CommunityPartners from '../components/CommunityPartners';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import { Club } from 'lucide-react';
+import StudentCoordinators from '@/components/StudentCoordinators';
+import ClubShowcase from '@/components/ClubShowcase';
 // import ClubShowcase from '@/components/ClubShowcase';
 
 export default function Home() {
@@ -17,8 +19,9 @@ export default function Home() {
       <InnovationTracks />
       <EventTimeline />
       <ExpertMentors />
-      <CommunityPartners />
+      <StudentCoordinators />
       <FAQ />
+      {/* <CommunityPartners /> */}
       {/* <ClubShowcase /> */}
       <Footer />
     </div> 

@@ -193,16 +193,7 @@ const Footer = () => {
                   <Phone className="w-4 h-4" />
                 </div>
                 <span className="text-sm">+91 92344 08229 - Harshita (Joint Secretary)</span>
-              </a>
-              <a
-                href="tel:+919390218260"
-                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
-              >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Phone className="w-4 h-4" />
-                </div>
-                <span className="text-sm">+91 93902 18260 - Ishita (Joint Secretary)</span>
-              </a>
+              </a>  
               <a
                 href="tel:+917015567105"
                 className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
