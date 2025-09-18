@@ -36,7 +36,7 @@ const StudentCoordinators = () => {
       name: "Mehak Kaur",
       position: "Secretary",
       organization: "Campus-to-Corporate Club",
-      image: "/mehek.jpeg",
+      image: "/Mehek.jpeg",
       linkedin: "https://www.linkedin.com/in/mehak-kaur-2061b1288/"
     },
     {
