@@ -1,253 +1,103 @@
-// This is the footer at the bottom of the site.
-// To change contact info or social links, edit the lines below.
-// To update the call-to-action or branding, look for the text and links at the end.
-
-// FOOTER COMPONENT
-// Section for site footer, contact info, social links, and call-to-action
-// To change contact info or social links, edit lines below
-
 'use client';
 
-import { Instagram, Linkedin, MessageCircle, Mail, Phone, ChevronLeft, ChevronRight, Youtube } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { Mail, Github, Linkedin, Twitter, Phone, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {
-  const { isDarkMode } = useTheme(); // Use global theme context
-  
-  // Carousel state
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // Gallery images
-  const galleryImages = [
-    {
-      src: "https://sficcu.vercel.app/assets/gallery1-1b0UnlhH.jpg",
-      alt: "Club Innovation Workshop"
-    },
-    {
-      src: "https://sficcu.vercel.app/assets/gallery2-BgfdLor_.jpg",
-      alt: "Team Collaboration Session"
-    },
-    {
-      src: "https://sficcu.vercel.app/assets/gallery3-D88p1lDU.jpg",
-      alt: "Technology Presentation"
-    },
-    {
-      src: "https://sficcu.vercel.app/assets/gallery4-DtrMrnVd.jpg",
-      alt: "Innovation Showcase"
-    },
-    {
-      src: "https://sficcu.vercel.app/assets/gallery5-DmnOxHaz.png",
-      alt: "Club Meeting"
-    }
-  ];
+  const { isDarkMode } = useTheme();
 
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
-    );
-  };
-  
   return (
-    <footer className={`py-20 border-t transition-colors duration-500 ${isDarkMode ? 'bg-gray-900 text-white border-gray-800' : 'bg-gray-100 text-gray-900 border-gray-300'}`}>
-      <div className="max-w-full mx-auto px-8">
-        {/* Section title and intro */}
-        <div className="text-center">
-          <h2 className={`text-4xl md:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Join Now
-          </h2>
-        </div>
-
-        {/* Sci-Fi Innovation Club Section */}
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Sci-Fi Innovation Club
-          </h2>
-          <p className={`text-xl font-bold max-w-4xl mx-auto mb-2 leading-relaxed text-purple-600`}>
-            &ldquo;Innovation at Heart, Excellence in Action&rdquo;
-          </p>
-          <p className={`text-xl max-w-4xl mx-auto mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Pioneering the future through innovation and technology
-            <br />
-            Where imagination meets implementation
-          </p>
-
-          {/* Photo Gallery and YouTube Video Row - Full Width */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-            {/* Photo Gallery Carousel */}
-            <div className={`rounded-xl p-6 ${isDarkMode ? 'bg-gray-800/50' : 'bg-white/50'}`}>
-              <div className="relative max-w-md mx-auto">
-                {/* Main carousel image */}
-                <div className="aspect-square rounded-lg overflow-hidden mb-4">
-                  <Image 
-                    src={galleryImages[currentImageIndex].src}
-                    alt={galleryImages[currentImageIndex].alt}
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-cover transition-all duration-500"
-                  />
-                </div>
-                
-                {/* Navigation buttons */}
-                <button
-                  onClick={prevImage}
-                  className={`absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isDarkMode ? 'bg-gray-800/80 hover:bg-gray-700 text-white' : 'bg-white/80 hover:bg-white text-gray-900'} shadow-lg hover:shadow-xl`}
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isDarkMode ? 'bg-gray-800/80 hover:bg-gray-700 text-white' : 'bg-white/80 hover:bg-white text-gray-900'} shadow-lg hover:shadow-xl`}
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-                
-                {/* Indicators */}
-                <div className="flex justify-center gap-2 mt-3">
-                  {galleryImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentImageIndex 
-                          ? 'bg-green-400 w-6' 
-                          : isDarkMode ? 'bg-gray-600 hover:bg-gray-500' : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                    />
-                  ))}
-                </div>
+    <footer className={`${
+      isDarkMode 
+        ? 'bg-gray-900/95 backdrop-blur-lg border-t border-gray-700/50' 
+        : 'bg-white/95 backdrop-blur-lg border-t border-gray-200/50'
+    } py-12`}>
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Section */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8">
+                <Image
+                  src={isDarkMode ? "/LOGO.png" : "/LOGO-black.png"}
+                  alt="Patent-A-Thon Logo"
+                  width={32}
+                  height={32}
+                  className="rounded-lg"
+                  priority
+                />
               </div>
+              <span className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                Patent-A-Thon 1.0
+              </span>
             </div>
-
-            {/* YouTube Video - Full Size */}
-            <div className={`rounded-xl p-6 ${isDarkMode ? 'bg-gray-800/50' : 'bg-white/50'}`}>
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/wXIax8Zqcm8"
-                  title="Sci-Fi Innovation Club Video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
-              </div>
-            </div>
+            <p className={`ml-10 font-bold ${isDarkMode ? 'text-green-400' : 'text-purple-600'} max-w-md font-semibold`}>
+              Ideate • Innovate • Invent
+            </p>
           </div>
 
-          {/* Action Buttons - moved below club section */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <a
-              href="https://cuintranet.in/clubs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg
-                ${isDarkMode
-                  ? 'bg-green-600 hover:bg-green-800 text-white hover:shadow-purple-500/25'
-                  : 'bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white hover:shadow-xl hover:shadow-green-500/30'
-                }`}
-            >
-              Apply Now
-            </a>
-            <a
-              href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`border-2 hover:border-green-500 px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:text-white' : 'border-gray-400 text-gray-600 hover:text-gray-900'}`}
-            >
-              Join WhatsApp
-            </a>
-          </div>
-        </div>
-
-        {/* Contact info, map and social links grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Contact Information */}
+          {/* Contact Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-green-400">
-              Contact Information
+            <h3 className={`text-lg font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              Contact
             </h3>
             <div className="space-y-3">
-              <a
-                href="mailto:scifiinnovationclub@gmail.com"
-                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+              <a 
+                href="mailto:scifiinnovationclub@gmail.com" 
+                className={`flex items-start space-x-2 transition-colors ${
+                  isDarkMode 
+                    ? 'text-gray-300 hover:text-white' 
+                    : 'text-gray-600 hover:text-black'
+                }`}
               >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Mail className="w-4 h-4" />
-                </div>
+                <Mail size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`} />
                 <span className="text-sm">scifiinnovationclub@gmail.com</span>
               </a>
-              <a
-                href="tel:+919234408229"
-                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+              
+              <a 
+                href="tel:+919234408229" 
+                className={`flex items-start space-x-2 transition-colors ${
+                  isDarkMode 
+                    ? 'text-gray-300 hover:text-white' 
+                    : 'text-gray-600 hover:text-black'
+                }`}
               >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Phone className="w-4 h-4" />
+                <Phone size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                <div className="text-sm">
+                  <div className="whitespace-nowrap">+91 92344 08229</div>
+                  <div className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>Harshita (Joint Secretary)</div>
                 </div>
-                <span className="text-sm">+91 92344 08229 - Harshita (Joint Secretary)</span>
-              </a>  
-              <a
-                href="tel:+917015567105"
-                className={`flex items-center gap-3 hover:text-green-400 transition-colors group ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
+              </a>
+              
+              <a 
+                href="tel:+917015567105" 
+                className={`flex items-start space-x-2 transition-colors ${
+                  isDarkMode 
+                    ? 'text-gray-300 hover:text-white' 
+                    : 'text-gray-600 hover:text-black'
+                }`}
               >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-green-500/20 transition-colors ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
-                  <Phone className="w-4 h-4" />
+                <Phone size={16} className={`mt-0.5 flex-shrink-0 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                <div className="text-sm">
+                  <div className="whitespace-nowrap">+91 70155 67105</div>
+                  <div className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>Krish (Joint Secretary)</div>
                 </div>
-                <span className="text-sm">+91 70155 67105 - Krish (Joint Secretary)</span>
               </a>
             </div>
           </div>
 
-          {/* Chandigarh University Map */}
+           {/* Social Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-green-400">
-              Location
+            <h3 className={`text-lg font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              Follow Us
             </h3>
-            <div className={`rounded-lg overflow-hidden shadow-md w-88 h-64 mx-auto ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4072.1497734433788!2d76.57560044333876!3d30.77068750658336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fedc134ed2ff3%3A0xbe462f3634df604f!2sChandigarh%20University!5e1!3m2!1sen!2sin!4v1757689003639!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
-                title="Chandigarh University Location"
-              ></iframe>
-            </div>
-            <div className="mt-2 text-center">
-              <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                📍 Mohali, Punjab
-              </p>
-              <a
-                href="https://maps.app.goo.gl/oKGr1o2eNGba5d9p8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-1 text-green-400 hover:text-green-300 transition-colors text-xs font-medium"
-              >
-                Directions →
-              </a>
-            </div>
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-green-400">Follow Us</h3>
             <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/scifiinnovationclub?igsh=NDVtamhnOXZsdGpk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-500/20 hover:text-pink-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-500/20 hover:text-pink-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-600'}`}
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -255,7 +105,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/sci-fi-innovation-club/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-600'}`}
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -263,7 +113,7 @@ const Footer = () => {
                 href='https://www.youtube.com/@sci-fiinnovation'
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-500/20 hover:text-red-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-600'}`}
               >
                 <Youtube className="w-5 h-5" />
               </a>
@@ -271,7 +121,7 @@ const Footer = () => {
                 href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-500/20 hover:text-green-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-300'}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:bg-green-500/20 hover:text-green-400 transition-all duration-300 group ${isDarkMode ? 'bg-gray-800' : 'bg-gray-600'}`}
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -279,12 +129,37 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer branding and copyright */}
-        <div className={`border-t pt-10 text-center ${isDarkMode ? 'border-gray-800' : 'border-gray-300'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-1 text-green-500">
-            Patent-A-Thon 1.0
-          </h2>
-          <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Built with innovation in mind | Sci-Fi Innovation Club</p>
+        {/* Bottom Bar */}
+        <div className={`mt-8 pt-8 border-t ${
+          isDarkMode ? 'border-gray-700/50' : 'border-gray-200/50'
+        }`}>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+            <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+              © 2025 Patent-A-Thon | Sci-Fi Innovation Club
+            </p>
+            {/* <div className="flex space-x-6">
+              <a 
+                href="#" 
+                className={`text-sm transition-colors ${
+                  isDarkMode 
+                    ? 'text-gray-400 hover:text-white' 
+                    : 'text-gray-500 hover:text-black'
+                }`}
+              >
+                Privacy Policy
+              </a>
+              <a 
+                href="#" 
+                className={`text-sm transition-colors ${
+                  isDarkMode 
+                    ? 'text-gray-400 hover:text-white' 
+                    : 'text-gray-500 hover:text-black'
+                }`}
+              >
+                Terms of Service
+              </a>
+            </div> */}
+          </div>
         </div>
       </div>
     </footer>
@@ -292,5 +167,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// End FOOTER COMPONENT

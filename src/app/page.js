@@ -20,9 +20,9 @@ export default function Home() {
       <EventTimeline />
       <ExpertMentors />
       <StudentCoordinators />
+      <CommunityPartners />
       <FAQ />
-      {/* <CommunityPartners /> */}
-      {/* <ClubShowcase /> */}
+      <ClubShowcase />
       <Footer />
     </div> 
   );

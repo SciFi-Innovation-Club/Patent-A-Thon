@@ -1,195 +1,207 @@
-// CLUB SHOWCASE COMPONENT
-// Section for showcasing the Sci-Fi Innovation Club
-// Displays club information, mission, achievements, and activities
-
 'use client';
 
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
-import { Users, Target, Award, Calendar, Lightbulb, Rocket, Star, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 
 const ClubShowcase = () => {
-  const { isDarkMode } = useTheme(); // Use global theme context
-
-  const achievements = [
+  const { isDarkMode } = useTheme();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Gallery images
+  const galleryImages = [
     {
-      icon: Award,
-      title: "17+ Events Organized",
-      description: "Successfully conducted multiple innovation events",
-      color: "text-yellow-400"
+      src: "https://sficcu.vercel.app/assets/gallery1-1b0UnlhH.jpg",
+      alt: "Club Innovation Workshop"
     },
     {
-      icon: Users,
-      title: "500+ Members",
-      description: "Growing community of innovators and researchers",
-      color: "text-blue-400"
+      src: "https://sficcu.vercel.app/assets/gallery2-BgfdLor_.jpg",
+      alt: "Team Collaboration Session"
     },
     {
-      icon: Lightbulb,
-      title: "Innovation Hub",
-      description: "Leading innovation initiatives at Chandigarh University",
-      color: "text-green-400"
+      src: "https://sficcu.vercel.app/assets/gallery3-D88p1lDU.jpg",
+      alt: "Technology Presentation"
     },
     {
-      icon: TrendingUp,
-      title: "Growing Impact",
-      description: "Expanding reach and influence in the tech community",
-      color: "text-purple-400"
+      src: "https://sficcu.vercel.app/assets/gallery4-DtrMrnVd.jpg",
+      alt: "Innovation Showcase"
+    },
+    {
+      src: "https://sficcu.vercel.app/assets/gallery5-DmnOxHaz.png",
+      alt: "Club Meeting"
     }
   ];
 
-  const activities = [
-    {
-      title: "Patent Workshops",
-      description: "Regular workshops on intellectual property and patent filing",
-      icon: "🔬"
-    },
-    {
-      title: "Innovation Competitions",
-      description: "Organizing hackathons and innovation challenges",
-      icon: "🏆"
-    },
-    {
-      title: "Tech Talks",
-      description: "Expert sessions on emerging technologies",
-      icon: "💡"
-    },
-    {
-      title: "Research Collaboration",
-      description: "Facilitating research partnerships and projects",
-      icon: "🤝"
-    },
-    {
-      title: "Mentorship Programs",
-      description: "Connecting students with industry experts",
-      icon: "👨‍🏫"
-    },
-    {
-      title: "Industry Visits",
-      description: "Organizing visits to tech companies and research labs",
-      icon: "🏢"
-    }
-  ];
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
+    );
+  };
 
   return (
-    <section id="club-showcase" className={`py-20 transition-colors duration-500 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
-      <div className="max-w-7xl mx-auto px-8">
-        
-        {/* Hero Section */}
-        <div className="text-center mb-20">
-          <div className="mb-8">
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent ${isDarkMode ? 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600' : 'bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700'}`}>
-              Sci-Fi Innovation Club
-            </h1>
-            <p className={`text-xl md:text-2xl lg:text-3xl font-semibold mb-8 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              Chandigarh University
-            </p>
-          </div>
-          
-          <div className={`max-w-4xl mx-auto p-8 rounded-2xl backdrop-blur-sm border ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/80 border-gray-300'}`}>
-            <p className={`text-lg md:text-xl leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              We are a dynamic community of innovators, researchers, and tech enthusiasts dedicated to fostering 
-              creativity and technological advancement. Our club serves as a platform for students to explore 
-              cutting-edge technologies, develop innovative solutions, and connect with industry leaders.
-            </p>
-          </div>
-        </div>
-
-        {/* Mission & Vision */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
-          <div className={`p-8 rounded-2xl backdrop-blur-sm border transition-all duration-300 hover:scale-105 ${isDarkMode ? 'bg-gray-800/80 border-gray-700 hover:border-green-400' : 'bg-white/90 border-blue-200 hover:border-blue-400'}`}>
-            <div className="flex items-center mb-6">
-              <Target className={`w-8 h-8 mr-4 ${isDarkMode ? 'text-green-400' : 'text-blue-500'}`} />
-              <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Our Mission</h2>
-            </div>
-            <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              To inspire and empower the next generation of innovators by providing a collaborative environment 
-              for learning, creating, and implementing groundbreaking technological solutions that address real-world challenges.
-            </p>
-          </div>
-
-          <div className={`p-8 rounded-2xl backdrop-blur-sm border transition-all duration-300 hover:scale-105 ${isDarkMode ? 'bg-gray-800/80 border-gray-700 hover:border-purple-400' : 'bg-white/90 border-purple-200 hover:border-purple-400'}`}>
-            <div className="flex items-center mb-6">
-              <Rocket className={`w-8 h-8 mr-4 ${isDarkMode ? 'text-purple-400' : 'text-purple-500'}`} />
-              <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Our Vision</h2>
-            </div>
-            <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              To become the leading innovation hub in academia, fostering a culture of creativity and entrepreneurship 
-              that bridges the gap between theoretical knowledge and practical application in emerging technologies.
-            </p>
-          </div>
-        </div>
-
-        {/* Achievements */}
-        <div className="mb-20">
-          <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Our Achievements
+    <section className={`py-20 transition-colors duration-500 ${isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-gray-50 via-white to-gray-50'}`}>
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl md:text-6xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            Sci-Fi Innovation 
+            <span className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"> Club</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <div
-                key={index}
-                className={`p-6 rounded-xl backdrop-blur-sm border text-center transition-all duration-300 hover:scale-105 group ${isDarkMode ? 'bg-gray-800/80 border-gray-700 hover:border-gray-600' : 'bg-white/90 border-gray-300 hover:border-gray-400'}`}
-              >
-                <achievement.icon className={`w-12 h-12 mx-auto mb-4 ${achievement.color} group-hover:scale-110 transition-transform duration-300`} />
-                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {achievement.title}
-                </h3>
-                <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  {achievement.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Activities */}
-        <div className="mb-20">
-          <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            What We Do
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activities.map((activity, index) => (
-              <div
-                key={index}
-                className={`p-6 rounded-xl backdrop-blur-sm border transition-all duration-300 hover:scale-105 group ${isDarkMode ? 'bg-gray-800/80 border-gray-700 hover:border-green-400' : 'bg-white/90 border-blue-200 hover:border-blue-400'}`}
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {activity.icon}
-                </div>
-                <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? 'text-white group-hover:text-green-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
-                  {activity.title}
-                </h3>
-                <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  {activity.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Join Us Section */}
-        <div className={`text-center p-12 rounded-2xl backdrop-blur-sm border ${isDarkMode ? 'bg-gradient-to-r from-gray-800/80 to-gray-700/80 border-gray-600' : 'bg-gradient-to-r from-blue-50/80 to-purple-50/80 border-blue-200'}`}>
-          <Star className={`w-16 h-16 mx-auto mb-6 ${isDarkMode ? 'text-yellow-400' : 'text-yellow-500'}`} />
-          <h2 className={`text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Join Our Innovation Journey
-          </h2>
-          <p className={`text-xl mb-8 max-w-3xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            Be part of a community that&apos;s shaping the future of technology. Whether you&apos;re interested in research, 
-            development, or entrepreneurship, we have opportunities for everyone.
+          <p className="text-xl md:text-2xl font-bold max-w-4xl mx-auto mb-4 leading-relaxed bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            &ldquo;Innovation at Heart, Excellence in Action&rdquo;
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className={`text-lg md:text-xl max-w-4xl mx-auto leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            Pioneering the future through innovation and technology
+            <br />
+            Where imagination meets implementation
+          </p>
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Photo Gallery Carousel */}
+          <div className={`group relative overflow-hidden rounded-2xl transition-all duration-700 transform hover:scale-105 hover:-translate-y-2
+            ${isDarkMode 
+              ? 'bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 shadow-2xl hover:shadow-purple-500/25' 
+              : 'bg-gradient-to-br from-white via-blue-50/50 to-purple-50/30 shadow-2xl hover:shadow-blue-500/25'
+            }`}
+            style={{
+              background: isDarkMode 
+                ? 'linear-gradient(135deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)'
+                : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(239, 246, 255, 0.8) 50%, rgba(243, 244, 246, 0.7) 100%)',
+              backdropFilter: 'blur(20px)',
+              border: `2px solid ${isDarkMode ? 'rgba(75, 85, 99, 0.3)' : 'rgba(209, 213, 219, 0.3)'}`,
+            }}
+          >
+            <div className="p-8">
+              <h3 className={`text-2xl font-bold mb-6 text-center ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Our Journey in Pictures
+              </h3>
+              <div className="relative max-w-md mx-auto">
+                {/* Main carousel image */}
+                <div className="aspect-square rounded-xl overflow-hidden mb-6 shadow-xl">
+                  <Image 
+                    src={galleryImages[currentImageIndex].src}
+                    alt={galleryImages[currentImageIndex].alt}
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+                  />
+                </div>
+                
+                {/* Navigation buttons */}
+                <button
+                  onClick={prevImage}
+                  className={`absolute left-2 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isDarkMode ? 'bg-gray-800/90 hover:bg-gray-700 text-white' : 'bg-white/90 hover:bg-white text-gray-900'} shadow-xl hover:shadow-2xl hover:scale-110`}
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className={`absolute right-2 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isDarkMode ? 'bg-gray-800/90 hover:bg-gray-700 text-white' : 'bg-white/90 hover:bg-white text-gray-900'} shadow-xl hover:shadow-2xl hover:scale-110`}
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+                
+                {/* Indicators */}
+                <div className="flex justify-center gap-3 mt-4">
+                  {galleryImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`h-3 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-gradient-to-r from-green-400 to-blue-500 w-8' 
+                          : isDarkMode ? 'bg-gray-600 hover:bg-gray-500 w-3' : 'bg-gray-300 hover:bg-gray-400 w-3'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* YouTube Video */}
+          <div className={`group relative overflow-hidden rounded-2xl transition-all duration-700 transform hover:scale-105 hover:-translate-y-2
+            ${isDarkMode 
+              ? 'bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 shadow-2xl hover:shadow-red-500/25' 
+              : 'bg-gradient-to-br from-white via-red-50/50 to-pink-50/30 shadow-2xl hover:shadow-red-500/25'
+            }`}
+            style={{
+              background: isDarkMode 
+                ? 'linear-gradient(135deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)'
+                : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 242, 242, 0.8) 50%, rgba(249, 250, 251, 0.7) 100%)',
+              backdropFilter: 'blur(20px)',
+              border: `2px solid ${isDarkMode ? 'rgba(75, 85, 99, 0.3)' : 'rgba(209, 213, 219, 0.3)'}`,
+            }}
+          >
+            <div className="p-8">
+              <h3 className={`text-2xl font-bold mb-6 text-center ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Watch Our Story
+              </h3>
+              <div className="aspect-video rounded-xl overflow-hidden shadow-xl">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/wXIax8Zqcm8"
+                  title="Sci-Fi Innovation Club Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action Buttons */}
+        <div className="text-center">
+          <h3 className={`text-3xl md:text-4xl font-bold mb-8 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            Ready to Innovate?
+          </h3>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="#contact"
-              className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${isDarkMode ? 'bg-green-600 hover:bg-green-700 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
+              href="https://cuintranet.in/clubs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`relative inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 group/btn
+                ${isDarkMode
+                  ? 'bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-500 hover:via-green-600 hover:to-green-700 text-white shadow-xl hover:shadow-green-500/40'
+                  : 'bg-gradient-to-r from-green-600 via-blue-600 to-green-700 hover:from-green-700 hover:via-blue-700 hover:to-green-800 text-white shadow-xl hover:shadow-green-500/40'
+                }`}
+              style={{
+                boxShadow: isDarkMode 
+                  ? '0 10px 25px -5px rgba(34, 197, 94, 0.4), 0 10px 10px -5px rgba(34, 197, 94, 0.2)'
+                  : '0 10px 25px -5px rgba(34, 197, 94, 0.4), 0 10px 10px -5px rgba(37, 99, 235, 0.3)'
+              }}
             >
-              Contact Us
+              <div className="absolute inset-0 rounded-full opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white/20 to-white/10"></div>
+              <span className="relative z-10">Apply Now</span>
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
+              </div>
             </a>
+            
             <a
-              href="#events"
-              className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 transform hover:scale-105 ${isDarkMode ? 'border-green-400 text-green-400 hover:bg-green-400 hover:text-black' : 'border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white'}`}
+              href="https://chat.whatsapp.com/CXnEqBAZlSIC3Msbv8017a?mode=ems_qr_c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`relative inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-xl border-2 transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 group/btn
+                ${isDarkMode 
+                  ? 'border-gray-600 text-white hover:border-green-400 hover:bg-green-400/10 hover:text-green-400' 
+                  : 'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-700 shadow-lg hover:shadow-blue-500/25'
+                }`}
             >
-              View Events
+              <div className="absolute inset-0 rounded-full opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white/10 to-white/5"></div>
+              <span className="relative z-10">Join WhatsApp</span>
             </a>
           </div>
         </div>
@@ -199,5 +211,3 @@ const ClubShowcase = () => {
 };
 
 export default ClubShowcase;
-
-// End CLUB SHOWCASE COMPONENT
