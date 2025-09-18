@@ -33,6 +33,13 @@ const StudentCoordinators = () => {
       linkedin: "https://www.linkedin.com/in/sarthak-kumar-thakur-097498231/"
     },
     {
+      name: "Mehak Kaur",
+      position: "Secretary",
+      organization: "Campus-to-Corporate Club",
+      image: "/mehek.jpeg",
+      linkedin: "https://www.linkedin.com/in/mehak-kaur-2061b1288/"
+    },
+    {
       name: "Krish Gauttam",
       position: "Joint Secretary",
       organization: "Sci-Fi Innovation Club",

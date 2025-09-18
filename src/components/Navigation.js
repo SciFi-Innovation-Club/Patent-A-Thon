@@ -61,7 +61,10 @@ const Navigation = () => {
             <a href="#mentors" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
               Mentors
             </a>
-            <a href="#faq" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
+            {/* <a href="/community-partners" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
+              Partners
+            </a> */}
+            {/* <a href="#faq" className={`hover:text-green-400 transition-colors ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
               FAQ
             </a>
           </div> */}
@@ -144,6 +147,13 @@ const Navigation = () => {
                 onClick={toggleMenu}
               >
                 Mentors
+              </a>
+              <a
+                href="/community-partners"
+                className={`block px-3 py-2 transition-colors ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+                onClick={toggleMenu}
+              >
+                Partners
               </a>
               <a
                 href="#faq"

@@ -85,7 +85,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const participants = useCountUp(startCount ? 150 : 0, 15000);
+  const participants = useCountUp(startCount ? 200 : 0, 15000);
 
   return (
     <header id="main-header" className={`min-h-screen relative overflow-hidden transition-colors duration-500 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-gray-900'}`}>
