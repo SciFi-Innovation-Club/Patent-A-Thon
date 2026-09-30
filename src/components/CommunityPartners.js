@@ -8,14 +8,14 @@ export default function CommunityPartners() {
   const partners = [
     {
       id: 1,
-      name: 'Engineering Community',
-      logo: '/ec.png',
-      linkedinUrl: 'https://www.linkedin.com/company/cu-engineering-community/'
+      name: 'Computer Society',
+      logo: '/cs.png',
+      linkedinUrl: 'https://www.linkedin.com/'
     },
     {
       id: 2,
-      name: 'Campus to Corporate',
-      logo: '/c2c.png',
+      name: 'IEEE SSIT ',
+      logo: '/ssit.jpg',
       linkedinUrl: 'https://www.linkedin.com/company/cu-campus-to-corporate/'
     }
   ];

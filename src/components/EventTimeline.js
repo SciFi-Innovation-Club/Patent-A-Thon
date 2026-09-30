@@ -6,12 +6,12 @@ import { useTheme } from '../contexts/ThemeContext';
 
 const timeline = [
   {
-    date: '12th Sep - 7th Oct',
+    date: '12th Sep - 20th Oct',
     title: 'Registrations Open (Tentative)',
     desc: 'Kick-off your innovation journey! Register your team and join the movement.',
   },
   {
-    date: '8th October',
+    date: '22th October',
     title: '1st Round: Draft to Craft',
     desc: 'Ideation & research phase, followed by step-by-step guidance on IPR form filling.',
   },
@@ -21,12 +21,12 @@ const timeline = [
     desc: 'Interactive mentoring with industry experts to refine your ideas and IPR drafts.',
   },
   {
-    date: '21st October',
+    date: '5th November',
     title: '2nd Round: Compile to Filed',
     desc: 'Present your ideas and submit finalized forms. Screened participants move to the final round.',
   },
   {
-    date: '3rd November',
+    date: '18th November',
     title: 'Patent-a-thon 2.0 Finale',
     desc: 'The Grand Finale! Top finalists showcase their patented innovations before the jury.',
   },

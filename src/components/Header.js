@@ -28,7 +28,7 @@ const Header = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const targetDate = new Date('2026-10-07T23:59:59').getTime();
+    const targetDate = new Date('2026-10-20T23:59:59').getTime();
     const updateCountdown = () => {
       const now = new Date().getTime();
       const difference = targetDate - now;
@@ -135,7 +135,7 @@ const Header = () => {
             isDarkMode ? 'bg-slate-800/80 border-slate-700 text-white' : 'bg-white/60 border-white/40 text-slate-900'
           }`}>
             <Calendar className="w-5 h-5 text-[#0066FF]" />
-            <span>12th Sep – 3rd Nov</span>
+            <span>12th Sep – 18th Nov</span>
           </div>
           <div className={`flex items-center gap-2.5 px-5 py-3 rounded-2xl shadow-lg border backdrop-blur-xl ${
             isDarkMode ? 'bg-slate-800/80 border-slate-700 text-white' : 'bg-white/60 border-white/40 text-slate-900'

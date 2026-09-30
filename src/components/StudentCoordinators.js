@@ -8,7 +8,7 @@ const coordinators = [
     name: 'V Ishitha',
     role: 'Chair, CS & Secretary, SCIFI',
     image: '/Ishita.jpeg',
-    linkedin: 'https://www.linkedin.com/in/v-ishitha-62918228a/',
+    linkedin: '#',
   },
   {
     name: 'Yash',

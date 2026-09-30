@@ -169,7 +169,7 @@ const ClubShowcase = () => {
           </h3>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="https://cuintranet.in/clubs"
+              href="https://forms.gle/Pvzz2wkyFasMteDT7"
               target="_blank"
               rel="noopener noreferrer"
               className={`relative inline-flex items-center gap-3 px-10 py-5 rounded-full font-bold text-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 group/btn
